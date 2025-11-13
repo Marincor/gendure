@@ -36,6 +36,6 @@ jobs:
       - name: Searching for vulnerabilities
         run: make lint
 
-      - name: Executando testes
+      - name: Executing tests
         run: make test
         
