@@ -7,7 +7,7 @@ TIMESTAMP := $(shell date +"%Y%m%d%H%M%S")
 lint:
 	@printf "\e[34m Running golangci-lint. ## \n"
 
-	gofumpt -w . | gci write --skip-generated -s standard -s default . && golangci-lint run $(file) --go=1.24 --enable-all --disable tagliatelle,wsl,godox,lll,gochecknoglobals,exhaustruct,wrapcheck,depguard,ireturn,misspell,funlen,intrange,cyclop,gocognit,err113,dupl,nestif,revive --timeout=5m
+	golangci-lint run $(file) --go=1.24 --enable-all --disable tagliatelle,wsl,godox,lll,gochecknoglobals,exhaustruct,wrapcheck,depguard,ireturn,misspell,funlen,intrange,cyclop,gocognit,err113,dupl,nestif,revive --timeout=5m
 
 	@printf "\e[34m No issues found with golangci-lint. ## \n"
 	@sleep 2
