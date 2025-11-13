@@ -9,7 +9,7 @@
 [![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev/)
 [![GoDoc reference example](https://img.shields.io/badge/godoc-reference-blue.svg)](https://godoc.org/github.com/marincor/gendure)
 [![GoReportCard example](https://goreportcard.com/badge/github.com/nanomsg/mangos)](https://goreportcard.com/report/github.com/marincor/gendure)
-[![Gendure](https://github.com/marincor/gendure/actions/workflows/test.yml/badge.svg)](https://github.com/marincor/gendure/actions/workflows/test.yml)
+[![Gendure](https://github.com/marincor/gendure/actions/workflows/tests.yml/badge.svg)](https://github.com/marincor/gendure/actions/workflows/tests.yml)
 
 
 ## Features
