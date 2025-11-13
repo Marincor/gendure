@@ -107,16 +107,16 @@ func NewExponentialBackoffRetry[T any](
 	}
 
 	if initialDelay <= 0 {
-		initialDelay = 100 * time.Millisecond
+		initialDelay = defaultInitialDelay
 	}
 	if maxRetries <= 0 {
-		maxRetries = 3
+		maxRetries = defaultMaxRetries
 	}
 	if multiplier <= 0 {
-		multiplier = 2
+		multiplier = defaultMultiplier
 	}
 	if randomInt <= 0 {
-		randomInt = 1
+		randomInt = defaultRandomInt
 	}
 
 	return ExponentialBackoffRetry[T]{

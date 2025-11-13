@@ -1,3 +1,4 @@
+//nolint:all // only test
 package gendure_test
 
 import (
@@ -14,6 +15,7 @@ const (
 	errorWantSuccessGotError = "want success, got error: %v"
 	errorWantSuccessGot      = "want 'success', got '%s'"
 	errorWant1CallGot        = "want 1 call, got %d"
+	success                  = "success"
 )
 
 func TestExponentialBackoffRetrySuccessImmediately(t *testing.T) {
@@ -21,7 +23,8 @@ func TestExponentialBackoffRetrySuccessImmediately(t *testing.T) {
 	exponetionalRetry := gendure.NewExponentialBackoffRetry(
 		func() (string, error) {
 			callCount++
-			return "success", nil
+
+			return success, nil
 		},
 		3*time.Millisecond,
 		10,
@@ -38,7 +41,7 @@ func TestExponentialBackoffRetrySuccessImmediately(t *testing.T) {
 		t.Errorf(errorWantSuccessGotError, err)
 	}
 
-	if result != "success" {
+	if result != success {
 		t.Errorf(errorWantSuccessGot, result)
 	}
 
@@ -53,7 +56,7 @@ func TestExponentialBackoffRetrySuccessAfterDelay(t *testing.T) {
 	exponetionalRetry := gendure.NewExponentialBackoffRetry(
 		func() (string, error) {
 			callCount++
-			return "success", nil
+			return success, nil
 		},
 		3*time.Millisecond,
 		10,
@@ -69,7 +72,7 @@ func TestExponentialBackoffRetrySuccessAfterDelay(t *testing.T) {
 		t.Errorf(errorWantSuccessGotError, err)
 	}
 
-	if result != "success" {
+	if result != success {
 		t.Errorf(errorWantSuccessGot, result)
 	}
 
@@ -84,7 +87,7 @@ func TestExponentialBackoffRetrySuccessAfterDelayAndRetriesAndJitter(t *testing.
 	exponetionalRetry := gendure.NewExponentialBackoffRetry(
 		func() (string, error) {
 			callCount++
-			return "success", nil
+			return success, nil
 		},
 		3*time.Millisecond,
 		10,
@@ -100,7 +103,7 @@ func TestExponentialBackoffRetrySuccessAfterDelayAndRetriesAndJitter(t *testing.
 		t.Errorf(errorWantSuccessGotError, err)
 	}
 
-	if result != "success" {
+	if result != success {
 		t.Errorf(errorWantSuccessGot, result)
 	}
 

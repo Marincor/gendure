@@ -9,7 +9,7 @@ import (
 	"github.com/marincor/gendure/glogger"
 )
 
-// Circuit breaker states
+// Circuit breaker states.
 const (
 	// Closed state allows all requests to pass through.
 	// The circuit breaker monitors failures and transitions to Open when threshold is reached.
@@ -112,11 +112,11 @@ func NewCircuitBreaker[T any](
 	var tName T
 
 	if failureThreshold <= 0 {
-		failureThreshold = 1
+		failureThreshold = defaultFailureThreshold
 	}
 
 	if recoveryTimeout <= 0 {
-		recoveryTimeout = 30 * time.Second
+		recoveryTimeout = defaultRecoveryTimeout
 	}
 
 	circuitBreaker := &circuitBreaker[T]{
@@ -198,11 +198,13 @@ func (cb *circuitBreaker[T]) Execute(
 		result, err := operation()
 		if err != nil {
 			cb.handleFailure(ctx)
+
 			return fallback()
 		}
 
 		// Operation succeeded, reset failure counter and ensure circuit is Closed
 		cb.Reset()
+
 		return result, nil
 	}
 }

@@ -1,3 +1,4 @@
+//nolint:all // only test
 package gendure_test
 
 import (
@@ -166,7 +167,9 @@ func TestCircuitBreakerRaceCondition(t *testing.T) {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			cirbuitBreaker.Execute(context.Background(), operation, fallback)
+			if _, err := cirbuitBreaker.Execute(context.Background(), operation, fallback); err != nil {
+				t.Errorf(unexpected, err)
+			}
 		}()
 	}
 

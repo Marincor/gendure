@@ -13,8 +13,7 @@ type GLogger interface {
 	Error(ctx context.Context, msg string, args ...any)
 }
 
-type gSlog struct {
-}
+type gSlog struct{}
 
 func New() *gSlog {
 	return &gSlog{}
