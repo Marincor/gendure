@@ -1,6 +1,6 @@
 # Gendure
 
-<img src="https://raw.githubusercontent.com/Marincor/assets/refs/heads/main/gendure.png" alt="Gendure Logo" width="100"/>
+<img src="https://iili.io/ffQcqS2.png" alt="Gendure Logo" width="100"/>
 
 **Gendure** is a Go library providing resilience patterns to make your services more robust and fault-tolerant. Built to endure failures with battle-tested patterns like Circuit Breaker and Exponential Backoff Retry.
 
